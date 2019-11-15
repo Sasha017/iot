@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+class Worker {
+private:
+    string number;
+    string type;
+public:
+    virtual void output(string number, string tape) = 0;
+};
+class manager : public Worker {
+public:
+    void output(string number, string type) {
+        cout << "manager " << number << " " << type << endl;
+    }
+};
+
+class scientist : public manager {
+public:
+    void output(string number, string type) {
+        cout << "scientist " << number << " " << type << endl;
+    }
+};
+
+class handyman : public Worker {
+public:
+    void output(string number, string type) {
+        cout << "handyman " << number << " " << type << endl;
+    }
+};
+
+class brigadier : public Worker {
+public:
+    void output(string number, string type) {
+        cout << "brigadier " << number << " " << type << endl;
+    }
+};
+
+int main() {
+    manager a;
+    scientist b;
+    handyman c;
+    brigadier d;
+    a.output("   5 ", " - store");
+    d.output(" 4 ", "- laboratory");
+    c.output("  6 ", "- stock");
+    d.output(" 1 ", "- construction");
+}
